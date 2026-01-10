@@ -14,12 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: GitHub-Profile-Summary-Cards
-        uses: vn7n24fzkq/github-profile-summary-cards@v0.7.0
+      - uses: vn7n24fzkq/github-profile-summary-cards@v0.7.0
         env:
-          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           USERNAME: 26zl
           THEME: github_dark
-          UTC_OFFSET: 1
+          UTC_OFFSET: 2
           AUTO_PUSH: true
