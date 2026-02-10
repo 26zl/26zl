@@ -26,5 +26,6 @@ $RECYCLE.BIN/
 # IDEs and Editors
 .vscode/
 .idea/
-
 *instructions/
+CLAUDE.MD
+claude/

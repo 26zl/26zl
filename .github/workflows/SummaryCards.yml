@@ -27,4 +27,18 @@ jobs:
           USERNAME: 26zl
           UTC_OFFSET: 2
           EXCLUDE: ""
-          AUTO_PUSH: true
+          AUTO_PUSH: false
+
+      - name: Keep only github_dark theme
+        run: |
+          cd profile-summary-card-output
+          find . -maxdepth 1 -type d ! -name '.' ! -name 'github_dark' -exec rm -rf {} +
+          rm -f README.md
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Generate profile summary cards"
+          git push
