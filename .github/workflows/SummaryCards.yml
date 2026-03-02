@@ -5,9 +5,9 @@ on:
     branches: ["main"]
     paths:
       - "README.md"
-      - ".github/workflows/profile-summary-cards.yml"
+      - ".github/workflows/SummaryCards.yml"
   schedule:
-    - cron: "0 3 1,15 * *"
+    - cron: "0 3 * * 5"
   workflow_dispatch:
 
 permissions:
