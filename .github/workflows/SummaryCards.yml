@@ -35,6 +35,11 @@ jobs:
           find . -maxdepth 1 -type d ! -name '.' ! -name 'github_dark' -exec rm -rf {} +
           rm -f README.md
 
+      - name: Cache-bust README images
+        run: |
+          TS=$(date +%s)
+          sed -i "s|\(github_dark/[^\"]*\.svg\)\(?v=[0-9]*\)\?|\1?v=$TS|g" README.md
+
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
