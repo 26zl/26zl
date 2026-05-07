@@ -8,7 +8,8 @@
 </p>
 
 <p align="center">
-  <img src="./profile-summary-card-output/github_dark/2-most-commit-language.svg" height="200" alt="Top Languages by Code" />
+  <img src="./profile-summary-card-output/github_dark/1-repos-per-language.svg" height="200" alt="Top Languages by Repo" />
+  <img src="./profile-summary-card-output/github_dark/2-most-commit-language.svg" height="200" alt="Top Languages by Commit" />
 </p>
 
 <p align="center"><img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" height="32" />&nbsp;&nbsp;<img src="https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white" alt="macOS" height="32" />&nbsp;&nbsp;<img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows" height="32" /></p>
