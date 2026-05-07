@@ -4,11 +4,11 @@
 </p>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=26zl&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&card_width=500&bg_color=0d1117&title_color=c9d1d9&text_color=8b949e&icon_color=8b949e&ring_color=8b949e" height="180" alt="GitHub Stats" />
+  <img src="./profile-summary-card-output/github_dark/3-stats.svg" height="200" alt="GitHub Stats" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=26zl&layout=compact&include_all_commits=true&count_private=true&hide_border=true&langs_count=12&hide=tex,codeql,css,html,dockerfile,makefile,cmake,procfile,batchfile,markdown,roff,plpgsql&card_width=500&bg_color=0d1117&title_color=c9d1d9&text_color=8b949e&icon_color=8b949e" alt="Top Languages by Code" />
+  <img src="./profile-summary-card-output/github_dark/2-most-commit-language.svg" height="200" alt="Top Languages by Code" />
 </p>
 
 <p align="center"><img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" height="32" />&nbsp;&nbsp;<img src="https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white" alt="macOS" height="32" />&nbsp;&nbsp;<img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows" height="32" /></p>
