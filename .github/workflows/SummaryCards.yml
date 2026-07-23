@@ -16,7 +16,8 @@ jobs:
 
       - uses: vn7n24fzkq/github-profile-summary-cards@v0.7.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Stats and profile-details cards need a PAT with read:user; the default token gets "Resource not accessible by integration".
+          GITHUB_TOKEN: ${{ secrets.SUMMARY_CARDS_TOKEN || secrets.GITHUB_TOKEN }}
         with:
           USERNAME: 26zl
           UTC_OFFSET: 2
