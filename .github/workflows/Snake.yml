@@ -24,6 +24,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # The snk container writes dist/ as root; reclaim it for the runner user.
+          sudo chown -R "$(id -u)":"$(id -g)" dist
           cd dist
           git init -b output
           git config user.name "github-actions[bot]"
