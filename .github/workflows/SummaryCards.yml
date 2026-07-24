@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: vn7n24fzkq/github-profile-summary-cards@39ae44423d8702dfbd64c7f407278fdd7a1b0c75 # v0.11.6
         env:
