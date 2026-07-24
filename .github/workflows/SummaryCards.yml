@@ -21,4 +21,5 @@ jobs:
         with:
           USERNAME: 26zl
           UTC_OFFSET: 2
+          EXCLUDE: tex
           AUTO_PUSH: true

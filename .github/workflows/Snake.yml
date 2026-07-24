@@ -12,6 +12,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Runs before snk so the container (root) owns dist afterwards; the push step chowns everything back.
+      - name: Build forks badge data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p dist
+          total=$(gh api graphql -f query='query { user(login: "26zl") { repositories(first: 100, ownerAffiliations: OWNER, privacy: PUBLIC) { nodes { forkCount } } } }' -q '[.data.user.repositories.nodes[].forkCount] | add')
+          printf '{"schemaVersion":1,"label":"Total Forks","message":"%s","namedLogo":"github","logoColor":"white","labelColor":"0d1117","color":"238636"}' "$total" > dist/forks.json
+
       - uses: Platane/snk@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3
         with:
           github_user_name: 26zl
