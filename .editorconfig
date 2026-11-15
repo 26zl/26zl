@@ -10,8 +10,3 @@ indent_size = 2
 
 [*.md]
 trim_trailing_whitespace = false
-
-# Written by the SummaryCards workflow, never edited by hand.
-[profile-summary-card-output/**]
-insert_final_newline = unset
-trim_trailing_whitespace = unset

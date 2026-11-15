@@ -1,23 +1,39 @@
 <!-- markdownlint-disable MD033 MD041 -->
+<!-- GitHub splits srcset on commas, so commas inside srcset URLs are written as %2C. -->
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:0d1117,100:161b22&height=200&section=header&text=Hello!%20Welcome%20to%20my%20GitHub%20%F0%9F%91%8B&fontColor=c9d1d9&fontSize=38&fontAlignY=42&animation=fadeIn" alt="header" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117%2C50:0d1117%2C100:161b22&height=200&section=header&text=Hello!%20Welcome%20to%20my%20GitHub%20%F0%9F%91%8B&fontColor=c9d1d9&fontSize=38&fontAlignY=42&animation=fadeIn" />
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:ffffff,50:ffffff,100:f6f8fa&height=200&section=header&text=Hello!%20Welcome%20to%20my%20GitHub%20%F0%9F%91%8B&fontColor=1f2328&fontSize=38&fontAlignY=42&animation=fadeIn" alt="header" />
+  </picture>
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/26zl/26zl/output/github-snake-dark.svg" alt="Contribution graph snake" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/26zl/26zl/output/github-snake-dark.svg" />
+    <img src="https://raw.githubusercontent.com/26zl/26zl/output/github-snake.svg" alt="Contribution graph snake" />
+  </picture>
 </p>
 
 <p align="center">
-  <img src="./profile-summary-card-output/github_dark/1-repos-per-language.svg" height="200" alt="Top Languages by Repo" />
-  <img src="./profile-summary-card-output/github_dark/2-most-commit-language.svg" height="200" alt="Top Languages by Commit" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/26zl/26zl/output/repos-per-language-dark.svg" />
+    <img src="https://raw.githubusercontent.com/26zl/26zl/output/repos-per-language.svg" height="200" alt="Top Languages by Repo" />
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/26zl/26zl/output/most-commit-language-dark.svg" />
+    <img src="https://raw.githubusercontent.com/26zl/26zl/output/most-commit-language.svg" height="200" alt="Top Languages by Commit" />
+  </picture>
 </p>
 
-<p align="center"><img src="https://img.shields.io/github/stars/26zl?style=for-the-badge&logo=github&logoColor=white&label=Total%20Stars&labelColor=0d1117&color=238636" alt="Total Stars" height="32" />&nbsp;&nbsp;<img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2F26zl%2F26zl%2Foutput%2Fforks.json&style=for-the-badge" alt="Total Forks" height="32" /></p>
+<p align="center"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2F26zl%2F26zl%2Foutput%2Fstars.json&style=for-the-badge" alt="Total Stars" height="32" />&nbsp;&nbsp;<img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2F26zl%2F26zl%2Foutput%2Fforks.json&style=for-the-badge" alt="Total Forks" height="32" /></p>
 
 <p align="center"><a href="https://github.com/26zl/nixos-config"><img src="https://img.shields.io/badge/NixOS-flake-5277C3?style=for-the-badge&logo=nixos&logoColor=white" alt="NixOS config" height="32" /></a>&nbsp;&nbsp;<a href="https://github.com/26zl/fedora-kde-setup"><img src="https://img.shields.io/badge/Fedora-KDE%20rice-51A2DA?style=for-the-badge&logo=fedora&logoColor=white" alt="Fedora KDE setup" height="32" /></a>&nbsp;&nbsp;<a href="https://github.com/26zl/ubuntu_setup"><img src="https://img.shields.io/badge/Ubuntu-GNOME%20setup-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Ubuntu GNOME setup" height="32" /></a>&nbsp;&nbsp;<a href="https://github.com/26zl/macsmith"><img src="https://img.shields.io/badge/macOS-forged-000000?style=for-the-badge&logo=apple&logoColor=white" alt="macOS setup" height="32" /></a>&nbsp;&nbsp;<a href="https://github.com/26zl/personal-windows-setup"><img src="https://img.shields.io/badge/Windows-toolkit-0078D6?style=for-the-badge" alt="Windows toolkit" height="32" /></a>&nbsp;&nbsp;<a href="https://github.com/26zl/windows_dotfiles"><img src="https://img.shields.io/badge/Windows%2011-dotfiles-0078D6?style=for-the-badge" alt="Windows 11 dotfiles" height="32" /></a>&nbsp;&nbsp;<a href="https://github.com/26zl/nvim"><img src="https://img.shields.io/badge/Neovim-everywhere-57A143?style=for-the-badge&logo=neovim&logoColor=white" alt="Neovim config" height="32" /></a>&nbsp;&nbsp;<a href="https://github.com/26zl/vscode_config"><img src="https://img.shields.io/badge/VS%20Code-setup-007ACC?style=for-the-badge" alt="VS Code config" height="32" /></a></p>
 
 <p align="center"><a href="https://discord.com/users/960002894722134046" target="_blank"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" height="32" /></a>&nbsp;&nbsp;<a href="mailto:26zl@pm.me" target="_blank"><img src="https://img.shields.io/badge/Proton%20Mail-6D4AFF?style=for-the-badge&logo=protonmail&logoColor=white" alt="Proton Mail" height="32" /></a></p>
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:161b22,50:0d1117,100:0d1117&height=120&section=footer&reversal=true" alt="footer" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=0:161b22%2C50:0d1117%2C100:0d1117&height=120&section=footer&reversal=true" />
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:f6f8fa,50:ffffff,100:ffffff&height=120&section=footer&reversal=true" alt="footer" />
+  </picture>
 </p>
