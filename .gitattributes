@@ -1,0 +1,2 @@
+# LF in every checkout, Windows included, to match .editorconfig.
+* text=auto eol=lf
