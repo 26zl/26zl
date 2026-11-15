@@ -1,0 +1,76 @@
+name: Profile
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      # Every step that writes dist/ as the runner user runs before snk, whose root container leaves files there; the push step chowns them back.
+      - name: Build badge data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p dist
+          totals=$(gh api graphql --paginate \
+            -f query='query($endCursor: String) { user(login: "26zl") { repositories(first: 100, after: $endCursor, ownerAffiliations: OWNER, privacy: PUBLIC) { nodes { stargazerCount forkCount } pageInfo { hasNextPage endCursor } } } }' \
+            --jq '.data.user.repositories.nodes[] | "\(.stargazerCount) \(.forkCount)"' |
+            awk '{ stars += $1; forks += $2 } END { print stars + 0, forks + 0 }')
+          read -r stars forks <<<"$totals"
+          # Stars the owner gave their own repos are not counted.
+          own=$(gh api --paginate users/26zl/starred --jq '.[] | select(.owner.login == "26zl" and (.private | not)) | .id' | wc -l)
+          badge() {
+            printf '{"schemaVersion":1,"label":"%s","message":"%s","namedLogo":"github","logoColor":"white","labelColor":"0d1117","color":"238636"}' "$1" "$2"
+          }
+          badge "Total Stars" "$((stars - own))" > dist/stars.json
+          badge "Total Forks" "$forks" > dist/forks.json
+
+      # Renders every theme into profile-summary-card-output/; only the two cards the README shows are kept.
+      - uses: vn7n24fzkq/github-profile-summary-cards@7022eb6bd48de38b092f54110a8ff8185f2ac4a1 # v0.13.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          USERNAME: 26zl
+          TIME_ZONE: Europe/Oslo
+          EXCLUDE: tex
+          AUTO_PUSH: false
+
+      - name: Collect cards
+        run: |
+          src=profile-summary-card-output
+          cp "$src/github/1-repos-per-language.svg" dist/repos-per-language.svg
+          cp "$src/github_dark/1-repos-per-language.svg" dist/repos-per-language-dark.svg
+          cp "$src/github/2-most-commit-language.svg" dist/most-commit-language.svg
+          cp "$src/github_dark/2-most-commit-language.svg" dist/most-commit-language-dark.svg
+
+      - uses: Platane/snk@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3
+        with:
+          github_user_name: 26zl
+          outputs: |
+            dist/github-snake.svg?palette=github-light
+            dist/github-snake-dark.svg?palette=github-dark
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Force-pushed orphan branch so daily regenerations never grow history on main.
+      - name: Push to output branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # The snk container writes dist/ as root; reclaim it for the runner user.
+          sudo chown -R "$(id -u)":"$(id -g)" dist
+          cd dist
+          git init -b output
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Generate profile assets"
+          git push -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" output
